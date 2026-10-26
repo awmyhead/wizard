@@ -31,9 +31,9 @@
 
 
         <div class="action-buttons">
-            <button type="button" class="secondary-btn">Szczęśliwy traf</button>
-            <button type="button" class="secondary-btn">Zmień odcień księgi zaklęć</button>
-            <button type="button" class="secondary-btn">Resetuj</button>
+            <button type="button" class="secondary-btn lucky-btn">Szczęśliwy traf</button>
+            <button type="button" class="secondary-btn theme-btn">Zmień odcień księgi zaklęć</button>
+            <button type="button" class="secondary-btn reset-btn">Resetuj</button>
         </div>
 
         <div class="results-container"></div>
@@ -47,26 +47,26 @@
         
         <div class="sidebar-item">
             <p>Filtrowanie zakłóceń</p>
-            <div class="toggle-container">
+            <label class="toggle-container">
                 <span>Wykrywacz iluzji (SafeSearch)</span>
-                <input type="checkbox" class="wizard-toggle" checked>
-            </div>
+                <input type="checkbox" class="wizard-toggle" id="opt-safe" checked>
+            </label>
         </div>
 
         <div class="sidebar-item">
             <p>Prędkość materializacji</p>
-            <div class="toggle-container">
+            <label class="toggle-container">
                 <span>Zwoje szybkiego czytania (Cache)</span>
-                <input type="checkbox" class="wizard-toggle" checked>
-            </div>
+                <input type="checkbox" class="wizard-toggle" id="opt-cache" checked>
+            </label>
         </div>
 
         <div class="sidebar-item">
             <p>Aura paska wyszukiwania</p>
-            <div class="toggle-container">
+            <label class="toggle-container">
                 <span>Magiczny blask (Poświata)</span>
-                <input type="checkbox" class="wizard-toggle" checked>
-            </div>
+                <input type="checkbox" class="wizard-toggle" id="opt-glow" checked>
+            </label>
         </div>
 
         <div class="sidebar-status">
@@ -77,7 +77,7 @@
     <footer>
         <div class="footer-copyright">© 2026 Wyszukiwarka Wizard</div>
         <div class="footer-links">
-            <a href="#">O Projekcie</a>
+            <a href="https://github.com/awmyhead/wizard" target="_blank" rel="noopener">O Projekcie</a>
         </div>
     </footer>
 
