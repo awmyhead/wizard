@@ -31,6 +31,18 @@ body::before {
     pointer-events: none;
 }
 
+body.theme-1 {
+    background: linear-gradient(135deg, #0f172a 0%, #052e2b 40%, #064e3b 70%, #0f172a 100%);
+}
+
+body.theme-2 {
+    background: linear-gradient(135deg, #0f172a 0%, #0c1e4a 40%, #0e3a5f 70%, #0f172a 100%);
+}
+
+body.theme-3 {
+    background: linear-gradient(135deg, #0f172a 0%, #3b0a1e 40%, #4c1d0f 70%, #0f172a 100%);
+}
+
 header {
     width: 100%;
     display: flex;
@@ -83,6 +95,7 @@ main.has-results {
     margin-bottom: 35px;
     text-align: center;
     user-select: none;
+    cursor: pointer;
     transition: transform 0.4s ease;
 }
 
@@ -124,6 +137,14 @@ main.has-results .logo-area {
 .search-box:focus-within {
     background: rgba(30, 41, 59, 0.65);
     border-color: rgba(139, 92, 246, 0.5);
+}
+
+body.glow .search-box {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 24px rgba(139, 92, 246, 0.25);
+}
+
+body.glow .search-box:focus-within {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 36px rgba(217, 70, 239, 0.35);
 }
 
 .search-icon {
@@ -309,6 +330,7 @@ main.has-results .action-buttons {
     width: 100%;
     color: #f1f5f9;
     font-size: 15px;
+    cursor: pointer;
 }
 
 .wizard-toggle {
