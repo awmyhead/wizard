@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wizard – Magia szybkiego wyszukiwania</title>
+    <!-- POŁĄCZENIE Z ZEWNĘTRZNYM PLIKIEM CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="wizard.png">
+</head>
+<body>
+
+    <header>
+        <button class="icon-btn" aria-label="Konfiguracja Czarów">⚙</button>
+    </header>
+
+    <main>
+        <div class="logo-area">
+            <h1 class="logo-wizard">Wizard</h1>
+            <p class="logo-sub">Search Engine</p>
+        </div>
+
+        <!-- Dodajemy atrybut action oraz method, wskazując serwer DuckDuckGo -->
+<form class="search-box" action="https://duckduckgo.com" method="get">
+    <span class="search-icon">✨</span>
+    <!-- KLUCZOWE: atrybut name="q" musi znaleźć się w input -->
+    <input type="text" name="q" class="search-input" placeholder="Rzuć zaklęcie wyszukiwania..." autofocus autocomplete="off">
+    <button type="button" class="clear-btn">✕</button>
+    <button type="submit" class="submit-btn">Szukaj</button>
+</form>
+
+
+        <div class="action-buttons">
+            <button type="button" class="secondary-btn">Szczęśliwy traf</button>
+            <button type="button" class="secondary-btn">Zmień odcień księgi zaklęć</button>
+            <button type="button" class="secondary-btn">Resetuj</button>
+        </div>
+
+        <div class="results-container"></div>
+    </main>
+
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Konfiguracja Czarów</h3>
+            <button class="sidebar-close">×</button>
+        </div>
+        
+        <div class="sidebar-item">
+            <p>Filtrowanie zakłóceń</p>
+            <div class="toggle-container">
+                <span>Wykrywacz iluzji (SafeSearch)</span>
+                <input type="checkbox" class="wizard-toggle" checked>
+            </div>
+        </div>
+
+        <div class="sidebar-item">
+            <p>Prędkość materializacji</p>
+            <div class="toggle-container">
+                <span>Zwoje szybkiego czytania (Cache)</span>
+                <input type="checkbox" class="wizard-toggle" checked>
+            </div>
+        </div>
+
+        <div class="sidebar-item">
+            <p>Aura paska wyszukiwania</p>
+            <div class="toggle-container">
+                <span>Magiczny blask (Poświata)</span>
+                <input type="checkbox" class="wizard-toggle" checked>
+            </div>
+        </div>
+
+        <div class="sidebar-status">
+            Status: Gotowy do rzucania zaklęć 🔮
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-copyright">© 2026 Wyszukiwarka Wizard</div>
+        <div class="footer-links">
+            <a href="#">O Projekcie</a>
+        </div>
+    </footer>
+
+    <!-- POŁĄCZENIE Z ZEWNĘTRZNYM PLIKIEM JAVASCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
+
