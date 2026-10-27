@@ -15,7 +15,7 @@ const cacheToggle = document.getElementById('opt-cache');
 const glowToggle = document.getElementById('opt-glow');
 
 // ID wyszukiwarki z programmablesearchengine.google.com (pole "cx"). Puste = wyniki z Wikipedii.
-const GOOGLE_CSE_ID = "";
+const GOOGLE_CSE_ID = "04159c0c3a2134d8f";
 
 const THEMES = 4;
 const cache = new Map();
@@ -38,6 +38,51 @@ function saveSettings() {
         localStorage.setItem('wizard-settings', JSON.stringify(settings));
     } catch (e) {}
 }
+
+
+let toastTimer;
+let toastHideTimer;
+
+function showToast(message) {
+    let toast = document.querySelector('.wizard-toast');
+
+    if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'wizard-toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+
+        document.body.appendChild(toast);
+    }
+
+    clearTimeout(toastTimer);
+    clearTimeout(toastHideTimer);
+
+    toast.classList.remove('show');
+    toast.innerHTML = '';
+
+    const icon = document.createElement('span');
+    icon.className = 'wizard-toast-icon';
+    icon.textContent = '✓';
+
+    const text = document.createElement('span');
+    text.textContent = message;
+
+    toast.append(icon, text);
+
+    // Pozwala przeglądarce zastosować animację wejścia.
+    void toast.offsetWidth;
+    toast.classList.add('show');
+
+    toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+
+        toastHideTimer = setTimeout(() => {
+            toast.remove();
+        }, 300);
+    }, 2500);
+}
+
 
 function applySettings() {
     safeToggle.checked = settings.safe;
@@ -266,20 +311,46 @@ clearBtn.addEventListener('click', function() {
     searchInput.focus();
 });
 
+
 safeToggle.addEventListener('change', function() {
     settings.safe = safeToggle.checked;
     saveSettings();
+
+    showToast(
+        settings.safe
+            ? 'SafeSearch został włączony'
+            : 'SafeSearch został wyłączony'
+    );
 });
+
 cacheToggle.addEventListener('change', function() {
     settings.cache = cacheToggle.checked;
-    if (!settings.cache) cache.clear();
+
+    if (!settings.cache) {
+        cache.clear();
+    }
+
     saveSettings();
+
+    showToast(
+        settings.cache
+            ? 'Pamięć podręczna została włączona'
+            : 'Pamięć podręczna została wyłączona'
+    );
 });
+
 glowToggle.addEventListener('change', function() {
     settings.glow = glowToggle.checked;
     saveSettings();
     applySettings();
+
+    showToast(
+        settings.glow
+            ? 'Magiczny blask został włączony ✨'
+            : 'Magiczny blask został wyłączony'
+    );
 });
+
 
 configBtn.addEventListener('click', function() { sidebar.classList.toggle('active'); });
 sidebarClose.addEventListener('click', function() { sidebar.classList.remove('active'); });
